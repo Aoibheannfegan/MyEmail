@@ -1,0 +1,40 @@
+textarea {
+    min-height: 400px;
+}
+
+#emails-view div {
+    border: 2px solid grey;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+.email-sender, .email-subject {
+    flex-basis: 33%;
+    padding: 0 10px;
+    font-weight: 300; 
+}
+
+.email-date {
+    text-align: right;
+    font-weight: 300; 
+}
+
+#emails-view .read {
+    background-color: lightgray;
+  }
+  
+#emails-view .unread {
+    background-color: white;
+  }
+
+.email-body {
+  padding:10px;
+}
+  
+button {
+    padding: 10px;
+    margin: 10px;
+}
