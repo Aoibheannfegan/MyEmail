@@ -2,37 +2,41 @@
 {% load static %}
 
 {% block body %}
-    <h2>{{ request.user.email }}</h2>
+    <section id="inbox-section">
+            <nav id="navbar">
+                <div id="nav-items">
+                    <h2 id="user-email">{{ request.user.email }}</h2>
+                    <button class="nav-button" id="inbox"><i class="fa-regular fa-envelope fa-lg" style="color: #ffffff;"></i>Inbox</button>
+                    <button class="nav-button" id="compose"><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ffffff;"></i>Compose</button>
+                    <button class="nav-button" id="sent"><i class="fa-regular fa-paper-plane fa-lg" style="color: #ffffff;"></i>Sent</button>
+                    <button class="nav-button" id="archive"><i class="fa-solid fa-box-archive fa-lg" style="color: #ffffff;"></i>Archived</button>
+                </div>
+                <button id="logout-button"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" style="color: #ffffff;"></i><a href="{% url 'logout' %}">Log Out</a></button>
+            </nav>
 
-    <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
-    <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
-    <button class="btn btn-sm btn-outline-primary" id="sent">Sent</button>
-    <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
-    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
-    <hr>
-
-    <div id="emails-view">
-    </div>
-
-    <div id="individual-email">
-    </div>
-
-    <div id="compose-view">
-        <h3>New Email</h3>
-        <form id="compose-form">
-            <div class="form-group">
-                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            <div id="emails-view">
             </div>
-            <div class="form-group">
-                To: <input id="compose-recipients" class="form-control">
+
+            <div id="individual-email">
             </div>
-            <div class="form-group">
-                <input class="form-control" id="compose-subject" placeholder="Subject">
+
+            <div id="compose-view">
+                <h3>New Email</h3>
+                <form id="compose-form">
+                    <div class="form-group">
+                        From: <input disabled class="form-control" value="{{ request.user.email }}">
+                    </div>
+                    <div class="form-group">
+                        To: <input id="compose-recipients" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="compose-subject" placeholder="Subject">
+                    </div>
+                    <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
+                    <button id="send" type="submit" class="btn btn-primary"/>Send</button>
+                </form>
             </div>
-            <textarea class="form-control" id="compose-body" placeholder="Body"></textarea>
-            <input id="send" type="submit" class="btn btn-primary"/>
-        </form>
-    </div>
+    </section>
 {% endblock %}
 
 {% block script %}
